@@ -7,7 +7,7 @@ tags:
   - virtualization
 metadata:
   displayName: RHEL Virtual Machine (APB)
-  imageUrl: https://raw.githubusercontent.com/mareklibra/rhelvm-apb/master/docs/imgs/icon.png
+  imageUrl: https://raw.githubusercontent.com/ansibleplaybookbundle/rhel-apb/master/docs/imgs/icon.png
 plans:
   - name: default
     metadata:
