@@ -13,15 +13,23 @@ objects:
   kind: OfflineVirtualMachine
   metadata:
     name: ${NAME}
+    labels:
+      kubevirt-ovm: ovm-${NAME}
   spec:
+    selector:
+      matchLabels:
+        kubevirt-ovm: ovm-${NAME}
     template:
+      metadata:
+        labels:
+          kubevirt-ovm: ovm-${NAME}
       spec:
         domain:
           cpu:
-            cores: ${CPU_CORES}
+            cores: ${{CPU_CORES}}
           resources:
             requests:
-              memory: ${MEMORY}
+              memory: ${{MEMORY}}
           machine:
             type: q35
           devices:
