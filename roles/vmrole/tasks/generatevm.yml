@@ -2,7 +2,10 @@
 ---
 # TODO: fetch template from API once loaded at deployment
 # TODO: Proper Linux and Windows templates are not yet ready, using the latest available
-- name: Generate Linux VM {{ NAME }} with {{ MEMORY }}M of memory
-  template:
-    src: vm-template-rhel7.yaml.j2
-    dest: /tmp/vm.yaml
+- name: Fetch template
+  copy:
+    src: templates/vm-template-rhel7.yaml
+    dest: /tmp/vmtemplate.yaml
+
+- name: Generate virtual machine {{ NAME }} with {{ MEMORY }}M of memory
+  shell: "oc process -f /tmp/vmtemplate.yaml -pNAME={{ NAME }} -pMEMORY={{ MEMORY }}M -pCPU_CORES={{ CPU_CORES }} > /tmp/vm.yaml"
