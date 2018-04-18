@@ -4,9 +4,9 @@ description: APB for managing RHEL Virtual Machine
 bindable: False
 async: optional
 tags:
-  - virtualization
+  - virtualmachine
 metadata:
-  displayName: RHEL Virtual Machine (APB)
+  displayName: RHEL Virtual Machine
   imageUrl: https://raw.githubusercontent.com/ansibleplaybookbundle/rhel-apb/master/docs/imgs/icon.png
 plans:
   - name: default
